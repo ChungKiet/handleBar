@@ -1,0 +1,8 @@
+Yeu cau ve nha
+- Cac nhom thiet ke CSDL cho do an mon hoc
+NoSQL hoac SQL
+
+- Nhom lam lai website 15/5
+=> Moi thanh vien lam 1 trang
+Trang chu: Footer MaNhom
+Trang ca nhan: Footer MSSV - Ho ten
