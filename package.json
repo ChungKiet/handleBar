@@ -1,12 +1,12 @@
 {
-  "name": "19120553",
+  "name": "handlebar",
   "version": "1.0.0",
-  "description": "",
-  "main": "data.js",
+  "description": "demo express",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "dminh",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
