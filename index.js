@@ -21,26 +21,28 @@ app.use(express.static(path.join(__dirname, 'code')));
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+
+
 app.get('/', (req, res)=> {
-   res.render('index');
+   res.render('index', {author: 'Nhom11'});
 })
 
 const {emotions} = require('./data')
 app.get('/task1', (req, res)=> {
-   res.render('task1', {emotions});
+   res.render('task1', {emotions, author:'19120296 - Do Hoai Nam'});
 })
 
 app.get('/task2', (req, res)=> {
    let salary=parseFloat(req.query.salary||0);
    res.locals.jars=[salary*55/100,salary*10/100,salary*5/100,salary*10/100,salary*10/100,salary*10/100];
-   res.render('task2');
+   res.render('task2', {author: '19120390 -  Trinh Thi Thuy'});
 })
 
 
 app.post('/task2', (req, res)=> {
    let salary=parseFloat(req.body.salary||0);
    res.locals.jars=[salary*55/100,salary*10/100,salary*5/100,salary*10/100,salary*10/100,salary*10/100];
-   res.render('task2');
+   res.render('task2',  {author: '19120390 -  Trinh Thi Thuy'});
 })
 
 app.get('/task3', (req, res)=> {
@@ -50,11 +52,11 @@ app.get('/task3', (req, res)=> {
    if (category){
       res.locals.products = products.filter(item => item.category == category);
    }
-   res.render('task3');
+   res.render('task3',  {author: '19120553 -  Chung Hoang Tuan Kiet'});
 })
 
 app.get('/task4', (req, res)=> {
-   res.render('task4');
+   res.render('task4',  {author: '19120580 -  Le Duc Minh'});
 })
 
 app.set('port', process.env.PORT || 5000);
