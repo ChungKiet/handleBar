@@ -59,6 +59,19 @@ app.get('/task4', (req, res)=> {
    res.render('task4',  {author: '19120580 -  Le Duc Minh'});
 })
 
+
+const {zodiacs } = require('./data')
+app.get('/task4', (req,res)=>{
+    res.locals.zodiacs = zodiacs;
+    res.render('task4', {author: '19120580 -  Le Duc Minh'})
+})
+
+app.get('/task4/:name', (req,res)=>{
+    res.locals.zodiac = zodiacs.filter(item=>item.name == req.params.name)[0]
+    res.render('task4-details', {author: '19120580 -  Le Duc Minh'})
+})
+
+
 app.set('port', process.env.PORT || 5000);
 
 app.listen(app.get('port'), () => {
