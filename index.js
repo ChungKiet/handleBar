@@ -2,9 +2,12 @@ const express = require('express')
 const expressHbs = require('express-handlebars');
 const app = express();
 const path = require('path');
+const bodyParser=require('body-parser');
+
 
 const hbs = expressHbs.create({
    layoutsDir: path.join(__dirname, 'views/layouts'),
+   partialsDir:path.join(__dirname, 'views/partials'),
    extname: 'hbs',
    defaultLayout: 'layout'
 });
@@ -16,6 +19,8 @@ app.set('view engine', 'hbs');
 
 app.use(express.static(path.join(__dirname, 'code')));
 
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 app.get('/', (req, res)=> {
    res.render('index');
 })
@@ -25,6 +30,15 @@ app.get('/task1', (req, res)=> {
 })
 
 app.get('/task2', (req, res)=> {
+   let salary=parseFloat(req.query.salary||0);
+   res.locals.jars=[salary*55/100,salary*10/100,salary*5/100,salary*10/100,salary*10/100,salary*10/100];
+   res.render('task2');
+})
+
+
+app.post('/task2', (req, res)=> {
+   let salary=parseFloat(req.body.salary||0);
+   res.locals.jars=[salary*55/100,salary*10/100,salary*5/100,salary*10/100,salary*10/100,salary*10/100];
    res.render('task2');
 })
 
