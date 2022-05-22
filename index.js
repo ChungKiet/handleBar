@@ -55,11 +55,6 @@ app.get('/task3', (req, res)=> {
    res.render('task3',  {author: '19120553 -  Chung Hoang Tuan Kiet'});
 })
 
-app.get('/task4', (req, res)=> {
-   res.render('task4',  {author: '19120580 -  Le Duc Minh'});
-})
-
-
 const {zodiacs } = require('./data')
 app.get('/task4', (req,res)=>{
     res.locals.zodiacs = zodiacs;
